@@ -8,8 +8,9 @@ export default function CoverImage({ title, coverImage, slug }) {
       width={2000}
       height={1000}
       alt={`Cover Image for ${title}`}
+      // TODO: Change this
       // src={coverImage?.sourceUrl}
-      src={'/27282.jpg'}
+      src={'/coming.jpg'}
       className={cn('shadow-small', {
         'hover:shadow-medium transition-shadow duration-200': slug,
       })}
