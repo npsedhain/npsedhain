@@ -1,4 +1,6 @@
 export default function Categories({ categories }) {
+  if (!categories.edges.length) return <></>;
+
   return (
     <span className="ml-1">
       under

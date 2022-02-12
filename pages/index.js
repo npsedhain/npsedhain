@@ -15,7 +15,7 @@ export default function Index({ allPosts: { edges }, preview }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>home | npsedhain</title>
         </Head>
         <Container>
           <Intro />
