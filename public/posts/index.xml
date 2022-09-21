@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BLOG SITE</title>
-    <link>/</link>
-    <description>Recent content on BLOG SITE</description>
+    <title>Posts on BLOG SITE</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on BLOG SITE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Milkshake</title>
       <link>/posts/milkshake/</link>
@@ -81,17 +81,6 @@
       <guid>/posts/hello-world/</guid>
       
         <description>It&#39;s never too late to start.</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      
-        <description>I should probably write something here soon&amp;hellip;</description>
       
     </item>
     
