@@ -1,0 +1,55 @@
+baseurl      = "/"
+title        = "BLOG SITE"
+languageCode = 'en-us'
+theme = 'anatole'
+
+[params]
+title = ''
+author = 'Anup Sedhain'
+description = '...'
+profilePicture = 'images/profile.jpg'
+
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/anup-sedhain-073563154/"
+
+[[params.socialIcons]]
+icon = "fas fa-envelope"
+title = "e-mail"
+url = "mailto:npsedhain@gmail.com"
+
+[[params.socialIcons]]
+icon = "fab fa-twitter"
+title = "Twitter"
+url = "https://twitter.com/npsedhain"
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "Github"
+url = "https://github.com/npsedhain"
+
+[taxonomies]
+    category = "categories"
+    series = "series"
+    tag = "tags"
+
+[menu]
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "Posts"
+  weight = 200
+  identifier = "posts"
+  url = "/posts/"
+
+  [[menu.main]]
+  name = "About"
+  weight = 300
+  identifier = "about"
+  url = "/about/"
+
