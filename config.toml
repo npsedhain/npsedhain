@@ -55,7 +55,7 @@ url = "https://github.com/npsedhain"
 
   [[menu.main]]
   name = "About"
-  weight = 300
+  weight = 400
   identifier = "about"
   url = "/about/"
 
