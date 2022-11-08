@@ -48,6 +48,12 @@ url = "https://github.com/npsedhain"
   url = "/posts/"
 
   [[menu.main]]
+  name = "Sketch"
+  weight = 300
+  identifier = "sketch"
+  url = "/sketch/"
+
+  [[menu.main]]
   name = "About"
   weight = 300
   identifier = "about"
