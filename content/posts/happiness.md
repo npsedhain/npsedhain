@@ -1,8 +1,8 @@
 ---
 date: 2020-06-06
-title: "What is happiness?"
+title: "Happiness"
 description: "Just a rookie trying to summarize what he learned recently."
-slug: "what-is-happiness"
+slug: "happiness"
 tags: []
 categories: []
 externalLink: ""

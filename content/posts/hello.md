@@ -1,8 +1,8 @@
 +++
 date = 2020-05-01
-title = "Hello World!"
+title = "Hello"
 description = "It's never too late to start."
-slug = "hello-world"
+slug = "hello"
 tags = []
 categories = []
 externalLink = ""

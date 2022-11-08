@@ -1,8 +1,8 @@
 ---
 date: 2020-06-03
-title: "Normal is hero!"
+title: "Normal"
 description: "What and who do you want to be?"
-slug: "normal-is-hero"
+slug: "normal"
 tags: []
 categories: []
 externalLink: ""

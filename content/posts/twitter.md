@@ -1,8 +1,8 @@
 +++
 date = 2020-05-02
-title = "What's happening?"
+title = "Twitter"
 description = "The world is divided."
-slug = "whats-happening"
+slug = "twitter"
 tags = []
 categories = []
 externalLink = ""

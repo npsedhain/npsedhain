@@ -1,8 +1,8 @@
 +++
 date = 2020-05-09
-title = "Friends become colleagues"
+title = "Friends"
 description = "Friends become colleagues before you even realize."
-slug = "work-life"
+slug = "friends"
 tags = []
 categories = []
 externalLink = ""
