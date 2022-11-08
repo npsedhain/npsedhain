@@ -14,22 +14,25 @@
     <loc>/posts/imagine/</loc>
     <lastmod>2020-06-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/what-is-happiness/</loc>
+    <loc>/posts/happiness/</loc>
     <lastmod>2020-06-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/normal-is-hero/</loc>
+    <loc>/posts/normal/</loc>
     <lastmod>2020-06-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/work-life/</loc>
+    <loc>/posts/friends/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/whats-happening/</loc>
+    <loc>/posts/twitter/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/hello-world/</loc>
+    <loc>/posts/hello/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/about/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>/sketch/</loc>
     <priority>0</priority>
   </url><url>
     <loc>/categories/</loc>
