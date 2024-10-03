@@ -16,4 +16,4 @@ Grad Student @ UF | Ex-[Airvet Inc](https://www.airvet.com/) | Ex-[Leapfrogger](
 
 - Say hi @ npsedhain@gmail.com
 
-- Know about my experiences https://npsedhain.com/resume
+- Know about my experiences [here](./public/resume.pdf)
