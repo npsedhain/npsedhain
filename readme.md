@@ -1,17 +1,19 @@
 ## Hi there!, I am Anup Sedhain
 
-Grad Student @ UF | Ex-[Airvet Inc](https://www.airvet.com/) | Ex-[Leapfrogger](https://www.lftechnology.com/) | I write stories for fun and code for work
+Grad Student @ UF | Ex-[Airvet Inc](https://www.airvet.com/) | Ex-[Leapfrogger](https://www.lftechnology.com/) | I write code when I am motivated
 
-- Currently studying at University of Florida
+- Always motivated
 
-- I’m currently enrolled for the course Distributed Operating System, Computer Architecture Principles and Advanced Data Structures
+- Currently studying at the University of Florida
 
-- I have over 6 years of experience as Software Engineer
+- I am enrolled for the courses - Distributed Operating System, Computer Architecture Principles, and Advanced Data Structures
 
-- I write about tech for beginners at https://www.codingfreshman.com/articles
+- I have over 5 years of experience working as a Software Engineer
 
-- I write about personal stuff at https://www.npsedhain.com/posts/
+- I write about tech in lay man terms at https://www.codingfreshman.com/articles
 
-- Say hi @ npsedhain@gmail.com
+- I also share some personal experiences and stories at https://www.npsedhain.com/posts/
 
-- Know about my experiences <a href="./public/resume.pdf" target="_blank">here!</a>
+- If you want to say hi - npsedhain@gmail.com
+
+- Want a detailed look? Have at it <a href="./public/resume.pdf" target="_blank">here!</a>
