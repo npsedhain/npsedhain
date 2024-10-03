@@ -1,7 +1,5 @@
-<center>
-Hi there!, I am Anup Sedhain
-</center>
----
+## Hi there!, I am Anup Sedhain
+
 Grad Student @ UF | Ex-[Airvet Inc](https://www.airvet.com/) | Ex-[Leapfrogger](https://www.lftechnology.com/) | I write stories for fun and code for work
 
 - Currently studying at University of Florida
