@@ -1,9 +1,9 @@
-import Link from "next/link";
-import { formatDate, getBlogPosts } from "app/lib/posts";
+import Link from 'next/link';
+import { formatDate, getBlogPosts } from 'app/lib/posts';
 
 export const metadata = {
-  title: "Blog",
-  description: "Nextfolio Blog",
+  title: 'Blog',
+  description: 'Nextfolio Blog'
 };
 
 export default function BlogPosts() {
@@ -11,7 +11,7 @@ export default function BlogPosts() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Our Blog</h1>
+      {/* <h1 className="mb-8 text-2xl font-medium tracking-tight">Our Blog</h1>
       <div>
         {allBlogs
           .sort((a, b) => {
@@ -39,7 +39,16 @@ export default function BlogPosts() {
               </div>
             </Link>
           ))}
-      </div>
+      </div> */}
+      <p className='mb-5'>This page is a work in progress...</p>
+      <p>
+        Meanwhile head over to{' '}
+        <a className='text-blue-400' target='_blank' href='https://codingfreshman.com'>
+          coding freshman dot com
+        </a>{' '}
+        for some of my not-so-recent-blogs.
+      </p>
+      <p className='mt-5'>I am working on porting all my writings here soon.</p>
     </section>
   );
 }
