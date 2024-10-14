@@ -8,7 +8,7 @@ export default function Page() {
         <Image
           src='/profile.png'
           alt='Profile photo'
-          className='rounded-md bg-gray-100 grayscale hover:grayscale-0 block mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5'
+          className='rounded-full object-cover bg-gray-100 h-40 w-40 grayscale hover:grayscale-0 block mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5'
           unoptimized
           width={160}
           height={160}
