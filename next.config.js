@@ -6,7 +6,7 @@ const nextConfig = {
     return [
       {
         source: '/resume',
-        destination: 'https://www.codingfreshman.com/resume',
+        destination: 'https://www.codingfreshman.com/resume.pdf',
         permanent: false,
       },
       {
