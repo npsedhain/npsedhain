@@ -2,6 +2,25 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  async redirects() {
+    return [
+      {
+        source: '/resume',
+        destination: 'https://www.codingfreshman.com/resume',
+        permanent: false,
+      },
+      {
+        source: '/blog',
+        destination: 'https://www.codingfreshman.com/articles',
+        permanent: false,
+      },
+      {
+        source: '/',
+        destination: 'https://www.codingfreshman.com',
+        permanent: false,
+      }
+    ]
+  },
   async rewrites() {
     return [
       {

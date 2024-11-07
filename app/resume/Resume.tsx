@@ -69,7 +69,7 @@ const Resume = () => {
         />
         <JobItem
           title='Software Engineering Consultant, Polydelic AS'
-          dates='August 2020 - December 2021'
+          dates='February 2021 - December 2021'
           responsibilities={[
             'Architected MVPs from scratch for multiple European startups to help secure seed funding.',
             'Implemented RBAC, subscriptions, and contract management for an artist booking platform.',
