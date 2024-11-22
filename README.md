@@ -6,7 +6,7 @@ Grad Student @ UF | Ex-[Airvet Inc](https://www.airvet.com/) | Ex-[Leapfrogger](
 
 - Currently studying at the University of Florida
 
-- I am enrolled for the courses - Distributed Operating System, Computer Architecture Principles, and Advanced Data Structures
+- This semester, I am enrolled in - Distributed Operating System, Computer Architecture Principles, and Advanced Data Structures
 
 - I have over 5 years of experience working as a Software Engineer
 
