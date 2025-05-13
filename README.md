@@ -1,6 +1,6 @@
 ## Hi there!, I am Anup Sedhain
 
-Grad Student @ UF | Ex-[Airvet Inc](https://www.airvet.com/) | Ex-[Leapfrogger](https://www.lftechnology.com/) | I write code when I am motivated
+Summer Intern @ [Airvet Inc](https://www.airvet.com/) | Grad Student @ UF | Ex-[Airvet Inc](https://www.airvet.com/) | Ex-[Leapfrogger](https://www.lftechnology.com/) | I write code when I am motivated
 
 - Always motivated
 
