@@ -12,7 +12,7 @@ SWE @ [Airvet Inc](https://www.airvet.com/) | Grad Student @ UF | Ex-[Leapfrogge
 
 - I am also working on a few ML projects this semester
 
-- I have over 5 years of experience working as a Software Engineer
+- I have over 6 years of experience working as a Software Engineer
 
 - I write about tech in lay man terms at https://www.codingfreshman.com/articles
 
