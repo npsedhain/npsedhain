@@ -37,7 +37,7 @@ const Resume = () => {
       <Section title='EDUCATION'>
         <EducationItem
           title='The University of Florida, Master of Science in Computer Science'
-          dates='May 2026'
+          dates='December 2025'
           details={[
             'Specializing in Computer Systems',
             'Enrolled in Distributed Systems and Computer Architecture classes'
@@ -54,6 +54,15 @@ const Resume = () => {
       </Section>
 
       <Section title='EMPLOYMENT'>
+        <JobItem
+          title='Software Engineer, Airvet Inc.'
+          dates='August 2024 - Present'
+          responsibilities={[
+            'Continuing to develop and maintain web applications for veterinary telemedicine services.',
+            'Working on AI/ML automation projects to improve platform efficiency and user experience.',
+            'Contributing to real-time communication systems and video call infrastructure.'
+          ]}
+        />
         <JobItem
           title='Software Engineer, Airvet Inc.'
           dates='May 2021 - July 2024'

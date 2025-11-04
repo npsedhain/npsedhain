@@ -1,6 +1,8 @@
 ## Hi there!, I am Anup Sedhain
 
-SWE @ [Airvet Inc](https://www.airvet.com/) | Grad Student @ UF | Ex-[Leapfrogger](https://www.lftechnology.com/) | I write code when I am motivated
+I'm pursuing a Master's in Computer Science at UF, specializing in AI/ML automation. Currently working as a Software Engineer at Airvet while completing my degree this December.
+
+Software Engineer @ [Airvet Inc](https://www.airvet.com/) | Grad Student @ UF | Ex-[Leapfrogger](https://www.lftechnology.com/) | I write code when I am motivated
 
 - Always motivated
 
