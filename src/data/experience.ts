@@ -24,13 +24,13 @@ export const roles: Role[] = [
   {
     start: 'Jan 2026',
     end: 'Present',
-    title: 'Fullstack Engineer',
+    title: 'Fullstack AI Engineer',
     company: 'Airvet',
     companyUrl: 'https://www.airvet.com',
     location: 'Los Angeles, CA',
     summary:
-      'Same Airvet, new title. These days I spend most of my time on AtlasVet, a RAG app for vets, and on getting Claude to classify vet cases well.',
-    tags: ['RAG', 'Claude API', 'Python', 'TypeScript', 'Go'],
+      "Same Airvet, new title. These days I spend most of my time building Atlas, a RAG app for vets, and on getting LLMs to handle pet parents' concerns.",
+    tags: ['RAG', 'LLMs', 'Python', 'TypeScript', 'Go'],
   },
   {
     start: 'May 2025',
@@ -51,7 +51,7 @@ export const roles: Role[] = [
     companyUrl: 'https://www.ufl.edu',
     location: 'Gainesville, FL',
     summary:
-      'Ran 2M+ BlueSky events through a pipeline on HiPerGator to spot AI-written posts and watch how attitudes drift over time.',
+      "Ran 2M+ BlueSky events through a pipeline on HiPerGator to find posts on certain topics and news, and track how people's behavior changed over time.",
     tags: ['Python', 'BERT', 'NetworkX', 'HPC'],
   },
   {
