@@ -44,8 +44,9 @@
     background: var(--bg);
     color: var(--fg);
     -webkit-font-smoothing: antialiased;
-    /* A serif reads small at 16px; 18px keeps the column comfortable. */
-    font-size: 112.5%;
+    /* A serif reads small at 16px; 20px body with a ~600px column gives ~70 characters
+       per line, the comfortable range for long reading. */
+    font-size: 125%;
     font-optical-sizing: auto;
   }
   ::selection {
@@ -115,6 +116,7 @@ html.motion [data-stagger] > * {
 /* Post body typography. */
 .prose-post {
   @apply prose max-w-none dark:prose-invert;
+  line-height: 1.6;
   --tw-prose-body: var(--fg);
   --tw-prose-headings: var(--fg);
   --tw-prose-links: var(--color-accent);
