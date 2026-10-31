@@ -46,7 +46,7 @@ export const roles: Role[] = [
   {
     start: 'Jan 2025',
     end: 'Jun 2025',
-    title: 'Graduate Research Assistant',
+    title: 'Graduate Research Volunteer',
     company: 'University of Florida',
     companyUrl: 'https://www.ufl.edu',
     location: 'Gainesville, FL',
