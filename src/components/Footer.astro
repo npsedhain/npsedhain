@@ -1,0 +1,11 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="flex flex-col gap-3 border-t border-line py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+  <div class="flex gap-5">
+    {site.socials.map((s) => <a href={s.href} class="link">{s.label}</a>)}
+    <a href="/rss.xml" class="link">RSS</a>
+  </div>
+  <p>&copy; {new Date().getFullYear()} {site.name}</p>
+</footer>

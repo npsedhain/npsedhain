@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/resume", "destination": "/resume.pdf", "permanent": false },
+    { "source": "/blog", "destination": "/writing", "permanent": true },
+    { "source": "/(essays|stories|articles)", "destination": "/writing", "permanent": true },
+    { "source": "/(essays|stories|articles)/:slug", "destination": "/writing/:slug", "permanent": true }
+  ]
+}

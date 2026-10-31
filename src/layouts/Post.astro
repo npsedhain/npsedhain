@@ -1,0 +1,40 @@
+---
+import Base from './Base.astro';
+import { formatDate, type PostMeta } from '../lib/posts';
+
+interface Props {
+  meta: PostMeta;
+}
+
+const { meta } = Astro.props;
+const slug = Astro.url.pathname.replace(/\/$/, '').split('/').pop();
+---
+
+<Base title={meta.title} description={meta.description}>
+  <div class="fixed inset-x-0 top-0 z-50 h-0.5 origin-left scale-x-0 bg-accent" data-progress aria-hidden="true"></div>
+  <article class="mt-8">
+    <header class="mb-10" data-stagger>
+      <p class="font-mono text-xs uppercase tracking-widest text-muted">
+        <a href="/writing" class="link">{meta.kind === 'story' ? 'Story' : 'Essay'}</a>
+        <span class="mx-2">·</span>
+        <time datetime={meta.date}>{formatDate(meta.date)}</time>
+      </p>
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl" transition:name={`title-${slug}`}>
+        {meta.title}
+      </h1>
+      {meta.description && <p class="mt-3 text-lg text-muted">{meta.description}</p>}
+    </header>
+    <div class="prose-post">
+      <slot />
+    </div>
+  </article>
+</Base>
+
+<script>
+  import { scroll, animate } from 'motion';
+
+  document.addEventListener('astro:page-load', () => {
+    const bar = document.querySelector<HTMLElement>('[data-progress]');
+    if (bar) scroll(animate(bar, { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' }));
+  });
+</script>

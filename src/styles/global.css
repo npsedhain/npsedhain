@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  /* Single accent used for links, focus rings and highlights. */
+  --color-accent: oklch(0.7 0.13 180);
+  --color-accent-soft: oklch(0.7 0.13 180 / 0.15);
+}
+
+:root {
+  color-scheme: light;
+  --bg: oklch(0.99 0 0);
+  --fg: oklch(0.25 0.01 260);
+  --muted: oklch(0.52 0.01 260);
+  --line: oklch(0.91 0.005 260);
+  --spot: oklch(0.7 0.13 180 / 0.06);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: oklch(0.17 0.006 260);
+  --fg: oklch(0.9 0.005 260);
+  --muted: oklch(0.65 0.01 260);
+  --line: oklch(0.28 0.008 260);
+  --spot: oklch(0.7 0.13 180 / 0.07);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-accent-soft);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility text-muted {
+  color: var(--muted);
+}
+@utility border-line {
+  border-color: var(--line);
+}
+
+/* Underline that grows from the left on hover. */
+@utility link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 250ms ease, color 150ms ease;
+  &:hover {
+    background-size: 100% 1px;
+    color: var(--color-accent);
+  }
+}
+
+/* Hovering one row dims its siblings (Brittany Chiang style). Put on the list element. */
+@utility dim-list {
+  & > * {
+    transition: opacity 200ms ease;
+  }
+  @media (hover: hover) {
+    &:hover > *:not(:hover) {
+      opacity: 0.45;
+    }
+  }
+}
+
+/* Motion: elements marked data-reveal start hidden only when JS + motion are allowed
+   (html.motion is set by an inline script), so content is never lost without JS. */
+html.motion [data-reveal],
+html.motion [data-stagger] > * {
+  opacity: 0;
+}
+
+/* Cursor spotlight, positioned by src/scripts/motion.ts. */
+.spotlight {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(600px circle at var(--x, 50%) var(--y, -20%), var(--spot), transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight {
+    display: none;
+  }
+}
+
+/* Post body typography. */
+.prose-post {
+  @apply prose max-w-none dark:prose-invert;
+  --tw-prose-body: var(--fg);
+  --tw-prose-headings: var(--fg);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-invert-body: var(--fg);
+  --tw-prose-invert-headings: var(--fg);
+  --tw-prose-invert-links: var(--color-accent);
+  & a {
+    text-underline-offset: 3px;
+  }
+  & img {
+    border-radius: 0.75rem;
+  }
+}

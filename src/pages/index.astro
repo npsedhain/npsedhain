@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import PostList from '../components/PostList.astro';
+import { getPosts } from '../lib/posts';
+import { site } from '../data/site';
+
+const posts = getPosts().slice(0, 5);
+---
+
+<Base>
+  <section class="mt-10" data-stagger>
+    <h1 class="text-3xl font-semibold tracking-tight">{site.name}</h1>
+    <p class="mt-2 text-muted">{site.role} at <a href={site.companyUrl} class="link">{site.company}</a></p>
+  </section>
+
+  <Section title="Writing" href="/writing">
+    <PostList posts={posts} />
+  </Section>
+</Base>

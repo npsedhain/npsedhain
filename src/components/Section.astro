@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  href?: string;
+  hrefLabel?: string;
+}
+
+const { title, href, hrefLabel = 'View all' } = Astro.props;
+---
+
+<section class="mt-16" data-reveal>
+  <div class="mb-5 flex items-baseline justify-between">
+    <h2 class="font-mono text-xs uppercase tracking-widest text-muted">{title}</h2>
+    {href && <a href={href} class="link text-sm text-muted">{hrefLabel} →</a>}
+  </div>
+  <slot />
+</section>
