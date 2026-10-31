@@ -7,27 +7,35 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
 
-  /* Single accent used for links, focus rings and highlights. */
-  --color-accent: oklch(0.7 0.13 180);
-  --color-accent-soft: oklch(0.7 0.13 180 / 0.15);
+}
+
+/* Single accent (persimmon) used for links, focus rings and highlights; defined per theme
+   so it keeps enough contrast on both black and paper. */
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
 }
 
 :root {
   color-scheme: light;
-  --bg: oklch(0.99 0 0);
-  --fg: oklch(0.25 0.01 260);
-  --muted: oklch(0.52 0.01 260);
-  --line: oklch(0.91 0.005 260);
-  --spot: oklch(0.7 0.13 180 / 0.06);
+  --bg: oklch(0.985 0.004 80);
+  --fg: oklch(0.2 0 0);
+  --muted: oklch(0.5 0 0);
+  --line: oklch(0.9 0.004 80);
+  --accent: oklch(0.56 0.19 38);
+  --accent-soft: oklch(0.56 0.19 38 / 0.14);
+  --spot: oklch(0.56 0.19 38 / 0.05);
 }
 
 .dark {
   color-scheme: dark;
-  --bg: oklch(0.17 0.006 260);
-  --fg: oklch(0.9 0.005 260);
-  --muted: oklch(0.65 0.01 260);
-  --line: oklch(0.28 0.008 260);
-  --spot: oklch(0.7 0.13 180 / 0.04);
+  --bg: oklch(0.155 0 0);
+  --fg: oklch(0.93 0 0);
+  --muted: oklch(0.64 0 0);
+  --line: oklch(0.27 0 0);
+  --accent: oklch(0.72 0.17 42);
+  --accent-soft: oklch(0.72 0.17 42 / 0.16);
+  --spot: oklch(0.72 0.17 42 / 0.035);
 }
 
 @layer base {
