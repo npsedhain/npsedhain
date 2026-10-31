@@ -4,9 +4,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  /* Newsreader is a screen-reading serif; `font-sans` is kept as the utility name so
+     existing classes pick it up. Mono stays for small labels and dates. */
+  --font-sans: 'Newsreader Variable', ui-serif, Georgia, serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
-
 }
 
 /* Single accent (persimmon) used for links, focus rings and highlights; defined per theme
@@ -43,6 +44,9 @@
     background: var(--bg);
     color: var(--fg);
     -webkit-font-smoothing: antialiased;
+    /* A serif reads small at 16px; 18px keeps the column comfortable. */
+    font-size: 112.5%;
+    font-optical-sizing: auto;
   }
   ::selection {
     background: var(--color-accent-soft);
