@@ -29,7 +29,7 @@ export const roles: Role[] = [
     companyUrl: 'https://www.airvet.com',
     location: 'Los Angeles, CA',
     summary:
-      'Same Airvet, new title. These days I spend most of my time on Atlas, a RAG product, and on getting Claude to classify vet cases well.',
+      'Same Airvet, new title. These days I spend most of my time on AtlasVet, a RAG app for vets, and on getting Claude to classify vet cases well.',
     tags: ['RAG', 'Claude API', 'Python', 'TypeScript', 'Go'],
   },
   {

@@ -9,12 +9,12 @@ export const site = {
   url: 'https://www.npsedhain.com',
   // Short plain-spoken bio for the home page hero.
   bio: [
-    "I build AI things for veterinary telehealth at Airvet. Right now that mostly means Atlas, a RAG product I'm working on, and making sure it answers from the right sources instead of making things up.",
+    "I build AI things for veterinary telehealth at Airvet. Right now that mostly means <a href=\"https://atlas.vet\">AtlasVet</a>, where vets ask clinical questions and get answers that quote their sources, and making sure it doesn't make things up.",
     "I'm from Nepal, and I'm not a prodigy. I didn't write a line of code until high school. At Kathmandu University I started Dailo, which won the Hult Prize on campus and then lost the regional finals in Tokyo. I needed a real job that paid.",
     "So: Leapfrog in Kathmandu, then freelancing for Polydelic in Oslo (my sleepless era), then Airvet, then a master's at the University of Florida, then back to Airvet. About seven years of shipping things so far.",
   ],
   // One line about what I'm working on right now. Keep it current.
-  now: 'Building Atlas, a RAG product at Airvet.',
+  now: 'Building AtlasVet, cited clinical answers for vets.',
   socials: [
     { label: 'GitHub', href: 'https://github.com/npsedhain' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/npsedhain/' },

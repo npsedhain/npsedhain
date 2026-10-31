@@ -15,7 +15,7 @@ const links = [github, linkedin, { label: 'Resume', href: '/resume.pdf' }].filte
   </p>
 
   <div class="mt-6 space-y-3 leading-relaxed">
-    {site.bio.map((para) => <p>{para}</p>)}
+    {site.bio.map((para) => <p class="[&_a]:link [&_a]:text-accent" set:html={para} />)}
   </div>
 
   <p class="mt-6 flex items-baseline gap-2.5 text-sm">

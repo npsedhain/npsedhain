@@ -10,9 +10,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'Atlas',
-    blurb: "A RAG product I'm building at Airvet. It's where most of my time goes right now.",
-    tags: ['RAG', 'Claude API', 'Python'],
+    name: 'AtlasVet',
+    blurb:
+      'Clinical answers for veterinarians, cited from Merck, AAHA and drug labels. Every quote gets checked against its source before you see it. Plus 29 clinical calculators.',
+    href: 'https://atlas.vet',
+    linkLabel: 'atlas.vet',
+    tags: ['RAG', 'Bedrock', 'Next.js', 'Postgres'],
   },
   {
     name: 'Vet case classification',
