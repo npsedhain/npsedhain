@@ -18,7 +18,7 @@ export const site = {
   socials: [
     { label: 'GitHub', href: 'https://github.com/npsedhain' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/npsedhain/' },
-    { label: 'Twitter', href: 'https://twitter.com/codingfreshman' },
+    { label: 'X', href: 'https://x.com/npsedhain' },
   ],
   nav: [
     { label: 'Writing', href: '/writing' },
