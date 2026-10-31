@@ -10,9 +10,9 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'Care Portal',
-    blurb: 'The real-time tool Airvet vet techs use to talk with pet parents. Handles 100+ cases at once without falling over.',
-    tags: ['Go', 'React', 'SSE', 'Redis'],
+    name: 'Atlas',
+    blurb: "A RAG product I'm building at Airvet. It's where most of my time goes right now.",
+    tags: ['RAG', 'Claude API', 'Python'],
   },
   {
     name: 'Vet case classification',
@@ -28,6 +28,11 @@ export const projects: Project[] = [
     name: 'Spotting AI posts on BlueSky',
     blurb: 'Research at UF. BERT, K-means and TF-IDF over 2M+ events, plus a temporal graph to see how attitudes shift.',
     tags: ['Python', 'BERT', 'NetworkX'],
+  },
+  {
+    name: 'Care Portal',
+    blurb: 'The real-time tool Airvet vet techs used to talk with pet parents. I built it from scratch back in 2021.',
+    tags: ['Go', 'React', 'SSE', 'Redis'],
   },
   {
     name: 'airvet.com',

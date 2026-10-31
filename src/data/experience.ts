@@ -29,8 +29,8 @@ export const roles: Role[] = [
     companyUrl: 'https://www.airvet.com',
     location: 'Los Angeles, CA',
     summary:
-      'Same Airvet, new title. I own the Care Portal, and spend the rest of my time getting Claude to classify vet cases well.',
-    tags: ['Next.js', 'TypeScript', 'Go', 'Python', 'Claude API'],
+      'Same Airvet, new title. These days I spend most of my time on Atlas, a RAG product, and on getting Claude to classify vet cases well.',
+    tags: ['RAG', 'Claude API', 'Python', 'TypeScript', 'Go'],
   },
   {
     start: 'May 2025',
