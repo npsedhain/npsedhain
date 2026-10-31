@@ -9,7 +9,7 @@ export const site = {
   url: 'https://www.npsedhain.com',
   // Short plain-spoken bio for the home page hero.
   bio: [
-    "I'm a fullstack AI engineer building AI things for veterinary telehealth. Right now that mostly means building <a href=\"https://atlas.vet\">Atlas</a> at Airvet, where vets ask clinical questions and get answers that quote their sources, and making sure it doesn't make things up.",
+    "I'm a fullstack AI engineer building AI products for veterinary telehealth. Right now that mostly means building <a href=\"https://atlas.vet\">Atlas</a> at Airvet, where vets ask clinical questions and get answers that quote their sources, and making sure it doesn't make things up.",
     "I live in the US. I started dabbling with the web and the internet back in high school, and in college my team won the <a href=\"https://www.hultprize.org/\">Hult Prize</a> at Kathmandu University.",
     "This is how my career has been so far: Leapfrog in Kathmandu, then freelancing for Polydelic in Oslo (my sleepless era), then Airvet, then a master's at the University of Florida, then back to Airvet. About seven years of shipping things so far.",
   ],
