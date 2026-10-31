@@ -1,0 +1,72 @@
+---
+// Table of contents for a post. Sits in the empty margin to the right of the 42rem column
+// on xl screens (the parent must be `relative`), hidden below that. The link for the
+// section currently being read is highlighted by an IntersectionObserver scroll-spy.
+import type { Heading } from '../lib/posts';
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<aside class="toc pointer-events-none absolute inset-y-0 left-full ml-12 hidden w-52 xl:block" aria-label="Table of contents">
+  <nav class="pointer-events-auto sticky top-24">
+    <p class="mb-3 font-mono text-xs uppercase tracking-widest text-muted">On this page</p>
+    <ul class="space-y-2 border-l border-line text-sm">
+      {
+        headings.map((h) => (
+          <li>
+            <a href={`#${h.id}`} data-toc-link={h.id} class="-ml-px block border-l border-transparent pl-3 leading-snug text-muted hover:text-[var(--fg)]">
+              {h.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  .toc a[data-active] {
+    color: var(--fg);
+    border-color: var(--color-accent);
+  }
+  :global(html.motion) .toc a {
+    transition:
+      color 200ms ease,
+      border-color 200ms ease;
+  }
+</style>
+
+<script>
+  let observer: IntersectionObserver | undefined;
+
+  function init() {
+    observer?.disconnect();
+    const links = new Map<string, HTMLElement>();
+    document.querySelectorAll<HTMLElement>('[data-toc-link]').forEach((a) => links.set(a.dataset.tocLink!, a));
+    if (!links.size) return;
+
+    const headings = [...links.keys()]
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    // The active section is the last heading that has scrolled above 30% of the viewport.
+    const update = () => {
+      const line = window.innerHeight * 0.3;
+      let active = headings[0];
+      for (const h of headings) if (h.getBoundingClientRect().top <= line) active = h;
+      links.forEach((a, id) => a.toggleAttribute('data-active', id === active?.id));
+    };
+
+    // Observe a thin band; whenever a heading crosses it, recompute.
+    observer = new IntersectionObserver(update, { rootMargin: '0px 0px -70% 0px', threshold: [0, 1] });
+    headings.forEach((h) => observer!.observe(h));
+    update();
+  }
+
+  document.addEventListener('astro:page-load', init);
+  document.addEventListener('astro:before-swap', () => observer?.disconnect());
+</script>

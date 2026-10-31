@@ -11,7 +11,7 @@ const { posts } = Astro.props;
 <ul class="dim-list -mx-3">
   {
     posts.map((post) => (
-      <li>
+      <li data-kind={post.kind}>
         <a href={post.url} class="group flex items-baseline gap-4 rounded-lg px-3 py-2.5 transition-colors hover:bg-[var(--spot)]">
           <span class="flex-1">
             <span class="group-hover:text-accent transition-colors" transition:name={`title-${post.slug}`}>

@@ -1,40 +1,112 @@
 ---
 import Base from './Base.astro';
-import { formatDate, type PostMeta } from '../lib/posts';
+import Toc from '../components/Toc.astro';
+import Giscus from '../components/Giscus.astro';
+import { formatDate, getAdjacentPosts, kindLabel, processHeadings, readingTime, type PostMeta } from '../lib/posts';
 
 interface Props {
   meta: PostMeta;
 }
 
 const { meta } = Astro.props;
-const slug = Astro.url.pathname.replace(/\/$/, '').split('/').pop();
+const slug = Astro.url.pathname.replace(/\/$/, '').split('/').pop() ?? '';
+
+// Render the post body once on the server so we can count words, add heading ids and
+// anchors, and build the table of contents from its h2s.
+const raw = Astro.slots.has('default') ? await Astro.slots.render('default') : '';
+const { html, headings } = processHeadings(raw);
+const minutes = readingTime(raw);
+const toc = headings.filter((h) => h.depth === 2);
+const { newer, older } = getAdjacentPosts(slug);
 ---
 
 <Base title={meta.title} description={meta.description}>
   <div class="fixed inset-x-0 top-0 z-50 h-0.5 origin-left scale-x-0 bg-accent" data-progress aria-hidden="true"></div>
-  <article class="mt-8">
+  <article class="relative mt-8">
     <header class="mb-10" data-stagger>
       <p class="font-mono text-xs uppercase tracking-widest text-muted">
-        <a href="/writing" class="link">{meta.kind === 'story' ? 'Story' : 'Essay'}</a>
+        <a href="/writing" class="link">{kindLabel[meta.kind] ?? 'Essay'}</a>
         <span class="mx-2">·</span>
         <time datetime={meta.date}>{formatDate(meta.date)}</time>
+        <span class="mx-2">·</span>
+        <span>{minutes} min read</span>
       </p>
       <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl" transition:name={`title-${slug}`}>
         {meta.title}
       </h1>
       {meta.description && <p class="mt-3 text-lg text-muted">{meta.description}</p>}
     </header>
-    <div class="prose-post">
-      <slot />
+
+    {toc.length >= 3 && <Toc headings={toc} />}
+
+    <div class="prose-post post-body">
+      <Fragment set:html={html} />
     </div>
   </article>
+
+  {
+    (newer || older) && (
+      <nav class="mt-16 grid gap-6 border-t border-line pt-8 text-sm sm:grid-cols-2" aria-label="More writing">
+        {older ? (
+          <a href={older.url} class="group block">
+            <span class="font-mono text-xs uppercase tracking-widest text-muted">← Previous</span>
+            <span class="mt-1 block transition-colors group-hover:text-accent">{older.title}</span>
+          </a>
+        ) : (
+          <span />
+        )}
+        {newer && (
+          <a href={newer.url} class="group block sm:text-right">
+            <span class="font-mono text-xs uppercase tracking-widest text-muted">Next →</span>
+            <span class="mt-1 block transition-colors group-hover:text-accent">{newer.title}</span>
+          </a>
+        )}
+      </nav>
+    )
+  }
+
+  <Giscus />
 </Base>
+
+<style>
+  .post-body :global(:is(h2, h3)[id]) {
+    scroll-margin-top: 2rem;
+  }
+  .post-body :global(.heading-anchor) {
+    margin-left: 0.4em;
+    color: var(--muted);
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0;
+  }
+  .post-body :global(:is(h2, h3):hover .heading-anchor),
+  .post-body :global(.heading-anchor:focus-visible) {
+    opacity: 1;
+  }
+  .post-body :global(.heading-anchor:hover) {
+    color: var(--color-accent);
+  }
+  :global(html.motion) .post-body :global(.heading-anchor) {
+    transition:
+      opacity 150ms ease,
+      color 150ms ease;
+  }
+  @media (hover: none) {
+    .post-body :global(.heading-anchor) {
+      display: none;
+    }
+  }
+</style>
 
 <script>
   import { scroll, animate } from 'motion';
 
+  let stop: VoidFunction | undefined;
+
   document.addEventListener('astro:page-load', () => {
+    stop?.();
+    stop = undefined;
     const bar = document.querySelector<HTMLElement>('[data-progress]');
-    if (bar) scroll(animate(bar, { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' }));
+    if (bar) stop = scroll(animate(bar, { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' }));
   });
 </script>

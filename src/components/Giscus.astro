@@ -1,0 +1,66 @@
+---
+// giscus comments (GitHub Discussions), configured from site.giscus. Renders nothing until
+// repoId is filled in. The client script is (re)injected on every astro:page-load so it
+// survives ClientRouter navigations, and the iframe theme follows the `dark` class on <html>.
+import { site } from '../data/site';
+
+const { repo, repoId, category, categoryId } = site.giscus;
+const enabled = Boolean(repo && repoId && categoryId);
+---
+
+{
+  enabled && (
+    <section class="mt-16 border-t border-line pt-10" aria-label="Comments">
+      <div
+        data-giscus
+        data-repo={repo}
+        data-repo-id={repoId}
+        data-category={category}
+        data-category-id={categoryId}
+      />
+    </section>
+  )
+}
+
+<script>
+  const ORIGIN = 'https://giscus.app';
+  const theme = () => (document.documentElement.classList.contains('dark') ? 'transparent_dark' : 'light');
+
+  function inject() {
+    const host = document.querySelector<HTMLElement>('[data-giscus]');
+    if (!host || host.querySelector('script, iframe')) return;
+    const { repo, repoId, category, categoryId } = host.dataset;
+    const script = document.createElement('script');
+    script.src = `${ORIGIN}/client.js`;
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    Object.entries({
+      repo: repo!,
+      'repo-id': repoId!,
+      category: category!,
+      'category-id': categoryId!,
+      mapping: 'pathname',
+      strict: '1',
+      'reactions-enabled': '1',
+      'emit-metadata': '0',
+      'input-position': 'top',
+      theme: theme(),
+      lang: 'en',
+      loading: 'lazy',
+    }).forEach(([key, value]) => script.setAttribute(`data-${key}`, value));
+    host.appendChild(script);
+  }
+
+  function syncTheme() {
+    const frame = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+    frame?.contentWindow?.postMessage({ giscus: { setConfig: { theme: theme() } } }, ORIGIN);
+  }
+
+  // <html> persists across ClientRouter swaps, so one observer covers every page.
+  new MutationObserver(syncTheme).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+
+  document.addEventListener('astro:page-load', inject);
+</script>

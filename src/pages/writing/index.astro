@@ -1,0 +1,138 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts, groupByYear } from '../../lib/posts';
+
+const posts = getPosts();
+const groups = groupByYear(posts);
+const kinds = new Set(posts.map((post) => post.kind));
+// Chips only earn their place when there is more than one kind to choose between.
+const showFilter = kinds.size > 1;
+const filters = [
+  { value: 'all', label: 'All', count: posts.length },
+  { value: 'essay', label: 'Essays', count: posts.filter((p) => p.kind === 'essay').length },
+  { value: 'story', label: 'Stories', count: posts.filter((p) => p.kind === 'story').length },
+];
+---
+
+<Base title="Writing" description="Essays on software and AI engineering, and stories from life.">
+  <div class="mt-8" data-stagger>
+    <header>
+      <h1 class="text-3xl font-semibold tracking-tight">Writing</h1>
+      <p class="mt-3 text-muted">
+        Essays on software and AI engineering, and the occasional story from life.
+        <a href="/rss.xml" class="link whitespace-nowrap">RSS</a>
+      </p>
+    </header>
+
+    {
+      showFilter && (
+        <div class="mt-8 flex gap-2" role="group" aria-label="Filter posts" data-filter>
+          {filters.map((f) => (
+            <button
+              type="button"
+              data-filter-value={f.value}
+              aria-pressed={f.value === 'all' ? 'true' : 'false'}
+              class="chip rounded-full border border-line px-3 py-1 font-mono text-xs text-muted"
+            >
+              {f.label}
+              <span class="ml-1 opacity-60">{f.count}</span>
+            </button>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      posts.length ? (
+        <div class="mt-10 space-y-10" data-posts>
+          {groups.map((group) => (
+            <section data-year-group aria-label={group.year}>
+              <h2 class="mb-2 font-mono text-xs tracking-widest text-muted">{group.year}</h2>
+              <PostList posts={group.posts} />
+            </section>
+          ))}
+          <p class="hidden text-sm text-muted" data-filter-empty>
+            Nothing here yet.
+          </p>
+        </div>
+      ) : (
+        <p class="mt-10 text-muted">
+          Nothing here yet. I'm writing the first one. Follow along via <a href="/rss.xml" class="link">RSS</a>.
+        </p>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .chip:hover {
+    color: var(--fg);
+  }
+  .chip[aria-pressed='true'] {
+    color: var(--fg);
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+  :global(html.motion) .chip {
+    transition:
+      color 150ms ease,
+      border-color 150ms ease,
+      background-color 150ms ease;
+  }
+</style>
+
+<script>
+  import { animate, stagger } from 'motion';
+
+  const KEY = 'writing-filter';
+  // Module state lives across ClientRouter navigations; sessionStorage covers full reloads.
+  let current = 'all';
+  try {
+    current = sessionStorage.getItem(KEY) ?? 'all';
+  } catch {}
+
+  function apply(value: string, animateIn: boolean) {
+    const root = document.querySelector('[data-posts]');
+    if (!root) return;
+    const shown: HTMLElement[] = [];
+    root.querySelectorAll<HTMLElement>('li[data-kind]').forEach((li) => {
+      const visible = value === 'all' || li.dataset.kind === value;
+      li.hidden = !visible;
+      if (visible) shown.push(li);
+    });
+    root.querySelectorAll<HTMLElement>('[data-year-group]').forEach((group) => {
+      group.hidden = !group.querySelector('li[data-kind]:not([hidden])');
+    });
+    root.querySelector<HTMLElement>('[data-filter-empty]')?.classList.toggle('hidden', shown.length > 0);
+    document.querySelectorAll<HTMLElement>('[data-filter-value]').forEach((chip) => {
+      chip.setAttribute('aria-pressed', String(chip.dataset.filterValue === value));
+    });
+
+    // Animate the row links (not the <li>s) so dim-list's hover opacity on the <li> keeps working.
+    if (animateIn && document.documentElement.classList.contains('motion')) {
+      const targets = shown.map((li) => li.firstElementChild as HTMLElement).filter(Boolean);
+      animate(
+        targets,
+        { opacity: [0, 1], transform: ['translateY(6px)', 'translateY(0px)'] },
+        { duration: 0.35, delay: stagger(0.03), ease: [0.22, 1, 0.36, 1] },
+      );
+    }
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    const bar = document.querySelector<HTMLElement>('[data-filter]');
+    if (!bar) return;
+    if (!bar.querySelector(`[data-filter-value="${current}"]`)) current = 'all';
+    apply(current, false);
+    bar.addEventListener('click', (event) => {
+      const chip = (event.target as HTMLElement).closest<HTMLElement>('[data-filter-value]');
+      if (!chip || chip.dataset.filterValue === current) return;
+      current = chip.dataset.filterValue!;
+      try {
+        sessionStorage.setItem(KEY, current);
+      } catch {}
+      apply(current, true);
+    });
+  });
+</script>

@@ -1,0 +1,62 @@
+---
+import Section from '../Section.astro';
+import { roles, education } from '../../data/experience';
+---
+
+<Section title="Experience">
+  <div class="relative">
+    <!-- Timeline rail; data-draw scales it in as you scroll. -->
+    <div class="absolute top-2 bottom-2 left-[3px] w-px bg-[var(--line)]" data-draw aria-hidden="true"></div>
+    <ol class="dim-list space-y-1">
+      {
+        roles.map((r) => (
+          <li class="relative pl-7">
+            <span class="absolute top-[0.6rem] left-0 size-[7px] rounded-full border border-line bg-[var(--bg)]" aria-hidden="true" />
+            <div class="rounded-lg py-2.5">
+              <p class="font-mono text-xs tabular-nums text-muted">
+                {r.start} – {r.end}
+              </p>
+              <h3 class="mt-1 font-medium">
+                {r.title} ·{' '}
+                {r.companyUrl ? (
+                  <a href={r.companyUrl} class="link" target="_blank" rel="noopener">
+                    {r.company}
+                  </a>
+                ) : (
+                  r.company
+                )}
+              </h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted">{r.summary}</p>
+              <ul class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] text-muted" aria-label="Tools">
+                {r.tags.map((t) => <li>{t}</li>)}
+              </ul>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  <h3 class="mt-10 mb-3 font-mono text-xs uppercase tracking-widest text-muted">Education</h3>
+  <ul class="dim-list space-y-2 text-sm">
+    {
+      education.map((e) => (
+        <li class="flex items-baseline gap-4">
+          <span class="w-24 shrink-0 font-mono text-xs tabular-nums text-muted">
+            {e.start} – {e.end}
+          </span>
+          <span>
+            {e.degree} ·{' '}
+            {e.schoolUrl ? (
+              <a href={e.schoolUrl} class="link" target="_blank" rel="noopener">
+                {e.school}
+              </a>
+            ) : (
+              e.school
+            )}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</Section>

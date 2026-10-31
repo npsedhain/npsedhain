@@ -1,0 +1,51 @@
+---
+import { site } from '../../data/site';
+
+const github = site.socials.find((s) => s.label === 'GitHub');
+const linkedin = site.socials.find((s) => s.label === 'LinkedIn');
+const links = [github, linkedin, { label: 'Resume', href: '/resume.pdf' }].filter(
+  (l): l is { label: string; href: string } => Boolean(l),
+);
+---
+
+<section class="mt-10" data-stagger>
+  <h1 class="text-3xl font-semibold tracking-tight">{site.name}</h1>
+  <p class="mt-1 text-muted">
+    {site.role} at <a href={site.companyUrl} class="link">{site.company}</a>
+  </p>
+
+  <div class="mt-6 space-y-3 leading-relaxed">
+    {site.bio.map((para) => <p>{para}</p>)}
+  </div>
+
+  <p class="mt-6 flex items-baseline gap-2.5 text-sm">
+    <span class="relative inline-flex size-2 shrink-0 translate-y-[-1px] self-center" aria-hidden="true">
+      <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none"></span>
+      <span class="relative inline-flex size-2 rounded-full bg-accent"></span>
+    </span>
+    <span><span class="font-mono text-xs uppercase tracking-widest text-muted">Now</span> <span class="ml-1">{site.now}</span></span>
+  </p>
+
+  <ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+    {
+      links.map((l) => (
+        <li>
+          <a href={l.href} class="link text-muted" {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
+            {l.label}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <a
+        href={`mailto:${site.email}`}
+        data-copy={site.email}
+        class="link font-mono text-muted"
+        title="Click to copy"
+        aria-label={`Copy email address ${site.email}`}
+      >
+        <span data-copy-label>{site.email}</span>
+      </a>
+    </li>
+  </ul>
+</section>

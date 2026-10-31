@@ -2,19 +2,30 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import PostList from '../components/PostList.astro';
+import Hero from '../components/home/Hero.astro';
+import ProofStrip from '../components/home/ProofStrip.astro';
+import Experience from '../components/home/Experience.astro';
+import Work from '../components/home/Work.astro';
 import { getPosts } from '../lib/posts';
-import { site } from '../data/site';
 
 const posts = getPosts().slice(0, 5);
 ---
 
 <Base>
-  <section class="mt-10" data-stagger>
-    <h1 class="text-3xl font-semibold tracking-tight">{site.name}</h1>
-    <p class="mt-2 text-muted">{site.role} at <a href={site.companyUrl} class="link">{site.company}</a></p>
-  </section>
+  <Hero />
+  <ProofStrip />
+  <Experience />
+  <Work />
 
-  <Section title="Writing" href="/writing">
-    <PostList posts={posts} />
+  <Section title="Writing" href={posts.length ? '/writing' : undefined}>
+    {
+      posts.length ? (
+        <PostList posts={posts} />
+      ) : (
+        <p class="text-sm text-muted">
+          Writing is coming soon. Subscribe via <a href="/rss.xml" class="link">RSS</a>.
+        </p>
+      )
+    }
   </Section>
 </Base>

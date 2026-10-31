@@ -1,0 +1,48 @@
+---
+// Template for a new post. Copy this file to src/pages/writing/<slug>.astro (no leading
+// underscore — the underscore keeps this one out of the build, the lists and RSS).
+//
+// - `meta` drives the /writing list, RSS, the page <title> and prev/next links.
+// - kind is 'essay' or 'story'. The filter chips on /writing appear once both kinds exist.
+// - Write plain HTML inside <Post>. h2s get ids and hover anchors automatically, and three
+//   or more h2s produce a table of contents in the right margin on wide screens.
+// - Code: wrap in <pre><code>{`...`}</code></pre> so braces aren't read as expressions.
+import Post from '../../layouts/Post.astro';
+
+export const meta = {
+  title: 'An example post',
+  date: '2026-10-31',
+  description: 'One sentence that shows up under the title, in lists and in RSS.',
+  kind: 'essay',
+} as const;
+---
+
+<Post meta={meta}>
+  <p>
+    The opening paragraph sets up the question. Keep it short and get to the point; the
+    description above already did the selling.
+  </p>
+
+  <h2>The problem</h2>
+  <p>Explain what was hard, and why the obvious approach didn't work.</p>
+  <ul>
+    <li>A first observation.</li>
+    <li>A second one, with <a href="https://astro.build">a link</a>.</li>
+    <li>A third, with some <code>inline code</code>.</li>
+  </ul>
+
+  <h2>What I tried</h2>
+  <p>Show the work.</p>
+  <pre><code>{`function readingTime(words: number) {
+  return Math.max(1, Math.round(words / 230));
+}`}</code></pre>
+
+  <h3>A smaller point</h3>
+  <p>h3s get anchors too, but stay out of the table of contents.</p>
+
+  <h2>What I learned</h2>
+  <blockquote>
+    <p>A line worth quoting, from someone else or from your past self.</p>
+  </blockquote>
+  <p>Close with the takeaway.</p>
+</Post>
