@@ -1,7 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
-import '@fontsource-variable/newsreader/opsz.css';
-import '@fontsource-variable/newsreader/opsz-italic.css';
+import '@fontsource-variable/merriweather/opsz.css';
+import '@fontsource-variable/merriweather/opsz-italic.css';
 import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
@@ -53,7 +53,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body class="min-h-dvh font-sans">
     <div class="spotlight" aria-hidden="true"></div>
-    <div class="relative z-10 mx-auto flex min-h-dvh max-w-[33rem] flex-col px-5 sm:px-6">
+    <div class="relative z-10 mx-auto flex min-h-dvh max-w-[calc(720px+3rem)] flex-col px-5 sm:px-6">
       <Header />
       <main class="flex-1 pb-24" transition:animate="fade">
         <slot />
