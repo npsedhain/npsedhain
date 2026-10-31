@@ -24,12 +24,11 @@ export const site = {
     { label: 'Writing', href: '/writing' },
     { label: 'Resume', href: '/resume.pdf' },
   ],
-  // giscus comments. Fill these in once the public GitHub repo has Discussions
-  // enabled (https://giscus.app generates the ids). Comments stay hidden until then.
+  // giscus comments, stored as GitHub Discussions on this site's repo (ids from https://giscus.app).
   giscus: {
-    repo: '',
-    repoId: '',
+    repo: 'npsedhain/npsedhain',
+    repoId: 'R_kgDOG1TY_Q',
     category: 'Announcements',
-    categoryId: '',
+    categoryId: 'DIC_kwDOG1TY_c4DKF63',
   },
 } as const;
