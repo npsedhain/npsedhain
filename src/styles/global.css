@@ -23,20 +23,20 @@
   --fg: oklch(0.2 0 0);
   --muted: oklch(0.5 0 0);
   --line: oklch(0.9 0.004 80);
-  --accent: oklch(0.56 0.19 38);
-  --accent-soft: oklch(0.56 0.19 38 / 0.14);
-  --spot: oklch(0.56 0.19 38 / 0.05);
+  --accent: oklch(0.52 0.19 37);
+  --accent-soft: oklch(0.52 0.19 37 / 0.14);
+  --spot: oklch(0.52 0.19 37 / 0.05);
 }
 
 .dark {
   color-scheme: dark;
-  --bg: oklch(0.155 0 0);
+  --bg: oklch(0.2 0 0);
   --fg: oklch(0.93 0 0);
   --muted: oklch(0.64 0 0);
-  --line: oklch(0.27 0 0);
-  --accent: oklch(0.72 0.17 42);
-  --accent-soft: oklch(0.72 0.17 42 / 0.16);
-  --spot: oklch(0.72 0.17 42 / 0.035);
+  --line: oklch(0.31 0 0);
+  --accent: oklch(0.67 0.18 40);
+  --accent-soft: oklch(0.67 0.18 40 / 0.16);
+  --spot: oklch(0.67 0.18 40 / 0.035);
 }
 
 @layer base {
